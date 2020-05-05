@@ -20,14 +20,16 @@ after_sucess:
   - docker push leslielees/docker-multi-api
   - docker push leslielees/docker-multi-worker
 
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "docker-mutli-container"
-  env: "DockerMutliContainer-env"
-  bucket_name: "elasticbeanstalk-us-east-1-912479479184"
-  bucket_path: "docker-multi"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+# Commented as AWS Env are deleted
+
+# deploy:
+#  provider: elasticbeanstalk
+#  region: "us-east-1"
+#  app: "docker-mutli-container"
+#  env: "DockerMutliContainer-env"
+#  bucket_name: "elasticbeanstalk-us-east-1-912479479184"
+#  bucket_path: "docker-multi"
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
