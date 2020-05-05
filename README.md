@@ -68,3 +68,13 @@ Atleast 1 container definition must be true
 12. AWS containers dont talk each other. Hence link is required in form of VPC securty group
 
 13. Create a VPC Security group and add all containers in that group. i.e BeanStalk / RDS / Cache
+
+14. Setup Env Vars in docker multi environment
+
+15. Create IAM User to deploy EBS
+
+16. Update Travis Deploy Script
+
+17. Update dockerrun aws for memory for each containers.
+
+18. Deploy n Test
