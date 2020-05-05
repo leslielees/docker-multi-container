@@ -1,0 +1,37 @@
+{
+    "AWSEBDockerrunVersion" : 2,
+    "containerDefinitions" : [
+        {
+            "name" : "frontend",
+            "image" :"leslielees/docker-multi-frontend",
+            "hostname" :"frontend",
+            "essential" : false
+        },
+        {
+            "name" : "api",
+            "image" :"leslielees/docker-multi-api",
+            "hostname" :"api",
+            "essential" : false
+        },
+        {
+            "name" : "worker",
+            "image" :"leslielees/docker-multi-worker",
+            "hostname" :"worker",
+            "essential" : false
+        },
+        {
+            "name" : "nginx",
+            "image" :"leslielees/docker-multi-nginx",
+            "hostname" :"nginx",
+            "essential" : true,
+            "portMapping":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "links":["frontend","api"]
+        }
+        
+    ]
+}
