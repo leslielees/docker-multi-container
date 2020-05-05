@@ -5,19 +5,22 @@
             "name" : "frontend",
             "image" :"leslielees/docker-multi-frontend",
             "hostname" :"frontend",
-            "essential" : false
+            "essential" : false,
+            "memory":128
         },
         {
             "name" : "api",
             "image" :"leslielees/docker-multi-api",
             "hostname" :"api",
-            "essential" : false
+            "essential" : false,
+            "memory":128
         },
         {
             "name" : "worker",
             "image" :"leslielees/docker-multi-worker",
             "hostname" :"worker",
-            "essential" : false
+            "essential" : false,
+            "memory":128
         },
         {
             "name" : "nginx",
@@ -30,7 +33,8 @@
                     "containerPort":80
                 }
             ],
-            "links":["frontend","api"]
+            "links":["frontend","api"],
+            "memory":128
         }
         
     ]
