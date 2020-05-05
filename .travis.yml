@@ -1,0 +1,21 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+  - docker build -t leslielees/docker-multicontainer-frontend -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+# we can have test for pther project/containers too. but not doing in this eg.
+  - docker run -e CI=true leslielees/docker-multicontainer-frontend npm test
+
+after_sucess:
+  - docker build -t leslielees/docker-multi-frontend -f ./frontend/Dockerfile ./frontend
+  - docker build -t leslielees/docker-multi-nginx -f ./nginx/Dockerfile ./nginx
+  - docker build -t leslielees/docker-multi-api -f ./api/Dockerfile ./api
+  - docker build -t leslielees/docker-multi-worker -f ./worker/Dockerfile ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push leslielees/docker-multi-frontend
+  - docker push leslielees/docker-multi-nginx
+  - docker push leslielees/docker-multi-api
+  - docker push leslielees/docker-multi-worker
