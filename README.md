@@ -11,3 +11,5 @@ Worker
 API
 Redis
 DB
+
+We can cross include any of service of docker-composed containers by simply refering to its name.
