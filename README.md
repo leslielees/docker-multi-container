@@ -40,3 +40,31 @@ Now, we need to follow this syntax to be able to qualify Dockerrun.aws.json cont
 `essential : true makes if any containr fail, everything will fail in dep`
 
 Atleast 1 container definition must be true
+
+## Steps
+
+1. Create apps Worker / API / Frontend
+
+2. Dockerize Each apps
+
+3. docker compose with redis and postgres
+
+4. env vars on docker-compose
+
+5. confi nginx to route to frontend & api
+
+6. create prod dockerfiles for each apps
+
+7. git and trvis set up till pushing to docker hub
+
+8. Dockerrun.aws.json - why & container definitions.
+
+9. Link frontend / api to nginx container defs
+
+10. Create Multi container EB Stalk
+
+11. AWS Managed data services for Data and Cache instead of containers.
+
+12. AWS containers dont talk each other. Hence link is required in form of VPC securty group
+
+13. Create a VPC Security group and add all containers in that group. i.e BeanStalk / RDS / Cache
